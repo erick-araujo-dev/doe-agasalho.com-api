@@ -225,10 +225,6 @@ namespace DoeAgasalhoApiV2._0.Controllers
                 var response = new { success = true, message = "Usuário ativado com sucesso!" };
                 return Ok(response);
             }
-            catch (InvalidOperationException ex)
-            {
-                return Conflict(ex.Message);
-            }
             catch (UnauthorizedAccessException ex)
             {
                 return StatusCode(403, $"Erro de autorização: {ex.Message}");
@@ -236,10 +232,6 @@ namespace DoeAgasalhoApiV2._0.Controllers
             catch (NotFoundException ex)
             {
                 return NotFound(ex.Message);
-            }
-            catch (ArgumentException ex)
-            {
-                return StatusCode(400, $"Tipo de dado inválido: {ex.Message}");
             }
             catch (Exception)
             {
@@ -257,10 +249,6 @@ namespace DoeAgasalhoApiV2._0.Controllers
                 var response = new { success = true, message = "Usuário desativado com sucesso!" };
                 return Ok(response);
             }
-            catch (InvalidOperationException ex)
-            {
-                return Conflict(ex.Message);
-            }
             catch (UnauthorizedAccessException ex)
             {
                 return StatusCode(403, $"Erro de autorização: {ex.Message}");
@@ -268,10 +256,6 @@ namespace DoeAgasalhoApiV2._0.Controllers
             catch (NotFoundException ex)
             {
                 return NotFound(ex.Message);
-            }
-            catch (ArgumentException ex)
-            {
-                return StatusCode(400, $"Tipo de dado inválido: {ex.Message}");
             }
             catch (Exception)
             {
