@@ -127,17 +127,14 @@ namespace DoeAgasalhoApiV2._0.Services
         }
        
 
-        //criar um novo produto
         public ProdutoModel CreateProduct(ProdutoCreateModel newProductCreate)
         {
             var userId = _GetUserIdAuth();
             var collectPointId = _GetCollectPointIdAuth();
 
-            //Valida caracteristica e genero
             _utilsService.ValidateStringField(newProductCreate.Caracteristica, "caracteristica", 50, true);
             _ValidateGender(newProductCreate.Genero);
 
-            //Valida os dados, e cria um novo tipo e tamanho se necessario
             _utilsService.ValidateStringField(newProductCreate.Tipo, "tipo", 20, false);
             var existingType = _GetOrCreateTipo(newProductCreate.Tipo);
 
